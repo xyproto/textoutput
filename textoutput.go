@@ -103,7 +103,7 @@ func (o *TextOutput) DarkCyan(s string) string {
 
 func (o *TextOutput) DarkGray(s string) string {
 	if o.color {
-		return vt100.Gray.Get(s)
+		return vt100.DarkGray.Get(s)
 	}
 	return s
 }
