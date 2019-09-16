@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-const VersionString = "textoutput 0.3"
+const VersionString = "textoutput 1.0.0"
 
 type TextOutput struct {
 	color   bool
