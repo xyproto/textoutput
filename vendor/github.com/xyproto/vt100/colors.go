@@ -3,6 +3,7 @@ package vt100
 import (
 	"fmt"
 	"image/color"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -46,8 +47,8 @@ var (
 	White        = NewAttributeColor("Bright", "White")
 
 	// Aliases
-	Pink = LightMagenta
-	Gray = LightGray
+	Pink        = LightMagenta
+	Gray        = LightGray
 
 	// Dark background colors (+ light gray)
 	BackgroundBlack     = NewAttributeColor("40")
@@ -60,8 +61,8 @@ var (
 	BackgroundLightGray = NewAttributeColor("47")
 
 	// Aliases
-	BackgroundWhite = BackgroundLightGray
-	BackgroundGray  = BackgroundLightGray
+	BackgroundWhite  = BackgroundLightGray
+	BackgroundGray   = BackgroundLightGray
 
 	// Default colors (usually gray)
 	Default           = NewAttributeColor("39")
@@ -309,9 +310,14 @@ func Stop() string {
 	return NoColor()
 }
 
-// Use this color to output the given text. Will reset the attributes at the end of the string.
+// Use this color to output the given text. Will reset the attributes at the end of the string. Outputs a newline.
 func (ac AttributeColor) Output(text string) {
 	fmt.Println(ac.Get(text))
+}
+
+// Same as output, but outputs to stderr instead of stdout
+func (ac AttributeColor) Error(text string) {
+	fmt.Fprintln(os.Stderr, ac.Get(text))
 }
 
 func (ac AttributeColor) Combine(other AttributeColor) AttributeColor {
