@@ -14,7 +14,7 @@ type TextOutput struct {
 	enabled bool
 }
 
-func NewTextOutput(color, enabled bool) *TextOutput {
+func New(color, enabled bool) *TextOutput {
 	return &TextOutput{color, enabled}
 }
 
