@@ -2,7 +2,6 @@
 package textoutput
 
 import (
-	"fmt"
 	"github.com/xyproto/vt100"
 	"os"
 )
@@ -29,32 +28,9 @@ func (o *TextOutput) ErrExit(msg string) {
 	os.Exit(1)
 }
 
-// Write a message to stdout if output is enabled
-func (o *TextOutput) Println(msg string) {
-	if o.enabled {
-		fmt.Println(msg)
-	}
-}
-
 // Checks if textual output is enabled
 func (o *TextOutput) IsEnabled() bool {
 	return o.enabled
-}
-
-// Changes the color state in the terminal emulator
-func (o *TextOutput) colorOn(num1, num2 int) string {
-	if o.color {
-		return fmt.Sprintf("\033[%d;%dm", num1, num2)
-	}
-	return ""
-}
-
-// Changes the color state in the terminal emulator
-func (o *TextOutput) colorOff() string {
-	if o.color {
-		return vt100.NoColor()
-	}
-	return ""
 }
 
 func (o *TextOutput) DarkRed(s string) string {
