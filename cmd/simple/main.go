@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	// Enable colors, enable output
 	o := textoutput.NewTextOutput(true, true)
 
 	// Output "a" in light blue and "b" in light green
