@@ -4,6 +4,6 @@ Package for controlling text output, with or without colors, on Linux, using VT1
 
 # General info
 
-* Version: 1.5.0
+* Version: 1.6.0
 * License: MIT
 * Author &lt;xyproto@archlinux.org&gt;
