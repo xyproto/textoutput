@@ -5,15 +5,21 @@ import (
 	"fmt"
 	"github.com/xyproto/vt100"
 	"os"
+	"strings"
 )
 
 type TextOutput struct {
 	color   bool
 	enabled bool
+	// Tag replacement structs
+	lightReplacer *strings.Replacer
+	darkReplacer  *strings.Replacer
 }
 
 func NewTextOutput(color, enabled bool) *TextOutput {
-	return &TextOutput{color, enabled}
+	o := &TextOutput{color, enabled, nil, nil}
+	o.initializeTagReplacers()
+	return o
 }
 
 // Write an error message in red to stderr if output is enabled
@@ -163,4 +169,112 @@ func (o *TextOutput) ColorOff() string {
 		return ""
 	}
 	return "\033[0m"
+}
+
+// Replace <blue> with starting a light blue color attribute and <off> with using the default attributes.
+// </blue> can also be used for using the default attributes.
+func (o *TextOutput) LightTags(colors ...string) string {
+	return o.lightReplacer.Replace(strings.Join(colors, ""))
+}
+
+// Alias for LightTags
+func (o *TextOutput) Tags(colors ...string) string {
+	return o.LightTags(colors...)
+}
+
+// Replace <blue> with starting a light blue color attribute and <off> with using the default attributes.
+// </blue> can also be used for using the default attributes.
+func (o *TextOutput) DarkTags(colors ...string) string {
+	return o.darkReplacer.Replace(strings.Join(colors, ""))
+}
+
+func (o *TextOutput) DisableColors() {
+	o.color = false
+	o.initializeTagReplacers()
+}
+
+func (o *TextOutput) EnableColors() {
+	o.color = true
+	o.initializeTagReplacers()
+}
+
+func (o *TextOutput) Disable() {
+	o.enabled = false
+}
+
+func (o *TextOutput) Enable() {
+	o.enabled = true
+}
+
+func (o *TextOutput) initializeTagReplacers() {
+	// Initialize tag replacement tables, with as few memory allocations as possible (no append)
+	off := vt100.NoColor()
+	rs := make([]string, len(vt100.LightColorMap)*4+2)
+	i := 0
+	if o.color {
+		for key, value := range vt100.LightColorMap {
+			rs[i] = "<" + key + ">"
+			i++
+			rs[i] = value.String()
+			i++
+			rs[i] = "</" + key + ">"
+			i++
+			rs[i] = off
+			i++
+		}
+		rs[i] = "<off>"
+		i++
+		rs[i] = off
+		i++
+	} else {
+		for key, _ := range vt100.LightColorMap {
+			rs[i] = "<" + key + ">"
+			i++
+			rs[i] = ""
+			i++
+			rs[i] = "</" + key + ">"
+			i++
+			rs[i] = ""
+			i++
+		}
+		rs[i] = "<off>"
+		i++
+		rs[i] = ""
+		i++
+	}
+	o.lightReplacer = strings.NewReplacer(rs...)
+	// Initialize the replacer for the dark color scheme, while reusing the rs slice
+	i = 0
+	if o.color {
+		for key, value := range vt100.DarkColorMap {
+			rs[i] = "<" + key + ">"
+			i++
+			rs[i] = value.String()
+			i++
+			rs[i] = "</" + key + ">"
+			i++
+			rs[i] = off
+			i++
+		}
+		rs[i] = "<off>"
+		i++
+		rs[i] = off
+		i++
+	} else {
+		for key, _ := range vt100.DarkColorMap {
+			rs[i] = "<" + key + ">"
+			i++
+			rs[i] = ""
+			i++
+			rs[i] = "</" + key + ">"
+			i++
+			rs[i] = ""
+			i++
+		}
+		rs[i] = "<off>"
+		i++
+		rs[i] = ""
+		i++
+	}
+	o.darkReplacer = strings.NewReplacer(rs...)
 }
