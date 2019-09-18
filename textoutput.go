@@ -227,7 +227,7 @@ func (o *TextOutput) initializeTagReplacers() {
 		rs[i] = off
 		i++
 	} else {
-		for key, _ := range vt100.LightColorMap {
+		for key := range vt100.LightColorMap {
 			rs[i] = "<" + key + ">"
 			i++
 			rs[i] = ""
@@ -261,7 +261,7 @@ func (o *TextOutput) initializeTagReplacers() {
 		rs[i] = off
 		i++
 	} else {
-		for key, _ := range vt100.DarkColorMap {
+		for key := range vt100.DarkColorMap {
 			rs[i] = "<" + key + ">"
 			i++
 			rs[i] = ""
