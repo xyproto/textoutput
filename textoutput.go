@@ -177,9 +177,11 @@ func (o *TextOutput) LightTags(colors ...string) string {
 	return o.lightReplacer.Replace(strings.Join(colors, ""))
 }
 
-// Alias for LightTags
-func (o *TextOutput) Tags(colors ...string) string {
-	return o.LightTags(colors...)
+// Same as LightTags, but outputs the text instead of returning it
+func (o *TextOutput) Tags(colors ...string) {
+	if o.enabled {
+		fmt.Println(o.LightTags(colors...))
+	}
 }
 
 // Replace <blue> with starting a light blue color attribute and <off> with using the default attributes.

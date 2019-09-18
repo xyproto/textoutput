@@ -20,7 +20,7 @@ func TestColorOn(t *testing.T) {
 
 func TestTags(t *testing.T) {
 	o := NewTextOutput(true, true)
-	a := o.Tags("<blue>hi</blue>")
+	a := o.LightTags("<blue>hi</blue>")
 	b := o.LightBlue("hi")
 	if a != b {
 		t.Fatal(a + " != " + b)
