@@ -12,8 +12,8 @@ func main() {
 	// Output "a" in light blue and "b" in light green
 	fmt.Println(o.LightTags("<blue>", "a", "<off> <green>", "b", "<off>"))
 
-	// Output "a" in light blue and "b" in light green
-	fmt.Println(o.Words("a b", "blue", "green"))
+	// Output "a" in light blue and "b c" in light green
+	fmt.Println(o.Words("a b c", "blue", "green"))
 
 	// Output "a" in light blue and "b" in light green
 	fmt.Println(o.LightBlue("a") + " " + o.LightGreen("b"))
