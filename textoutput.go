@@ -22,10 +22,10 @@ func NewTextOutput(color, enabled bool) *TextOutput {
 	return o
 }
 
-// Output text that may have tags like "<blue>", "</blue>" or "<off>" for
+// OutputTags will output text that may have tags like "<blue>", "</blue>" or "<off>" for
 // enabling or disabling color attributes. Respects the color/enabled settings
 // of this TextOutput.
-func (o *TextOutput) Output(colors ...string) {
+func (o *TextOutput) OutputTags(colors ...string) {
 	if o.enabled {
 		fmt.Println(o.Tags(colors...))
 	}
