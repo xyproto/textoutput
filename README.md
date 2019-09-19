@@ -34,10 +34,10 @@ func main() {
 	fmt.Println(o.LightTags("<blue>", "a", "</blue>"))
 
 	// Output "a" in light blue
-	o.Tags("<blue>a</blue>")
+	o.OutputTags("<blue>a</blue>")
 
 	// Output "a" in light blue
-	o.Tags("<blue>a<off>")
+	o.OutputTags("<blue>a<off>")
 
 	// Exit with a dark red error message
 	o.ErrExit("error: too convenient")
