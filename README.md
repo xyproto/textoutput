@@ -48,6 +48,6 @@ func main() {
 
 ## General info
 
-* Version: 1.6.0
+* Version: 1.6.1
 * License: MIT
 * Author &lt;xyproto@archlinux.org&gt;
