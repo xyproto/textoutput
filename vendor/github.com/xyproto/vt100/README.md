@@ -8,7 +8,7 @@
 * Can get key-presses, including arrow keys.
 * Has a Canvas struct, for drawing only the updated characters to the terminal.
 * Uses the spec directly, but memoizes the commands sent to the terminal, for speed.
-* Everything is ready if someone wants to use this to build a utility similar to `dialog` or `whiptail`.
+* Could be used for building a better `dialog` or `whiptail` utility.
 
 ### Images
 
@@ -35,7 +35,7 @@ A physical VT100 terminal. Photo by [Jason Scott](https://www.flickr.com/photos/
 Output "hi" in blue:
 
 ```go
-fmt.Println(vt100.BrightColor("hi", "Blue"))
+vt100.Blue.Output("hi")
 ```
 
 Erase the current line:
