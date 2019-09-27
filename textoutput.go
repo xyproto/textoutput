@@ -11,8 +11,8 @@ import (
 
 // CharAttribute is a rune and a color attribute
 type CharAttribute struct {
-	r rune
-	c vt100.AttributeColor
+	R rune
+	A vt100.AttributeColor
 }
 
 // TextOutput keeps state about verbosity and if colors are enabled
