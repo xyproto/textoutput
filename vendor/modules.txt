@@ -3,5 +3,5 @@ github.com/pkg/term
 github.com/pkg/term/termios
 # github.com/xyproto/vt100 v1.4.0
 github.com/xyproto/vt100
-# golang.org/x/sys v0.0.0-20190919044723-0c1ff786ef13
+# golang.org/x/sys v0.0.0-20190927073244-c990c680b611
 golang.org/x/sys/unix
