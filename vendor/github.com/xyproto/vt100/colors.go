@@ -88,8 +88,10 @@ var (
 		"Cyan":         Cyan,
 		"gray":         DarkGray,
 		"Gray":         DarkGray,
-		"white":        White,
-		"White":        White,
+		"white":        LightGray,
+		"White":        LightGray,
+		"lightwhite":   White,
+		"LightWhite":   White,
 		"darkred":      Red,
 		"DarkRed":      Red,
 		"darkgreen":    Green,
@@ -139,6 +141,8 @@ var (
 		"Gray":         LightGray,
 		"white":        White,
 		"White":        White,
+		"lightwhite":   White,
+		"LightWhite":   White,
 		"lightred":     LightRed,
 		"LightRed":     LightRed,
 		"lightgreen":   LightGreen,
@@ -332,7 +336,7 @@ func (ac AttributeColor) Combine(other AttributeColor) AttributeColor {
 	}
 	newAttributes := make(AttributeColor, len(amap))
 	index := 0
-	for attr, _ := range amap {
+	for attr := range amap {
 		newAttributes[index] = attr
 		index++
 	}
