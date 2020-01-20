@@ -34,5 +34,5 @@ func main() {
 	o.OutputTags("<darkgray>a<off>")
 
 	// Exit with a dark red error message
-	o.ErrExit("error: too convenient")
+	o.ErrExit("Oh no, it's too convenient!")
 }
