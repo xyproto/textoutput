@@ -7,7 +7,7 @@ import (
 
 func main() {
 	// Enable colors, enable output
-	o := textoutput.NewTextOutput(true, true)
+	o := textoutput.New()
 
 	// Output "a" in light blue and "b" in light green
 	fmt.Println(o.LightTags("<blue>", "a", "<off> <green>", "b", "<off>"))
