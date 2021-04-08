@@ -34,5 +34,5 @@ func main() {
 	o.OutputTags("<darkgray>a<off>")
 
 	// Exit with a dark red error message
-	o.ErrExit("MALFUNCTION: textual output too convenient!")
+	//o.ErrExit("MALFUNCTION: textual output too convenient!")
 }
