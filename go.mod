@@ -6,4 +6,5 @@ require (
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/xyproto/vt100 v1.8.7
+	golang.org/x/sys v0.0.0-20210426230700-d19ff857e887 // indirect
 )
