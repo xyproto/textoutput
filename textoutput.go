@@ -16,17 +16,16 @@ import (
 
 // CharAttribute is a rune and a color attribute
 type CharAttribute struct {
-	R rune
 	A vt100.AttributeColor
+	R rune
 }
 
 // TextOutput keeps state about verbosity and if colors are enabled
 type TextOutput struct {
-	color   bool
-	enabled bool
-	// Tag replacement structs, for performance
 	lightReplacer *strings.Replacer
 	darkReplacer  *strings.Replacer
+	color         bool
+	enabled       bool
 }
 
 // New creates a new TextOutput struct, which is
