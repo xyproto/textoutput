@@ -23,8 +23,6 @@ func main() {
 }
 ```
 
-![screenshot](img/screenshot.png)
-
 ## General info
 
 * Version: 1.14.1
