@@ -1,6 +1,6 @@
 # TextOutput
 
-[![Build Status](https://travis-ci.com/xyproto/textoutput.svg?branch=master)](https://travis-ci.com/xyproto/textoutput) [![GoDoc](https://godoc.org/github.com/xyproto/textoutput?status.svg)](https://godoc.org/github.com/xyproto/textoutput) [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/xyproto/textoutput/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/xyproto/textoutput)](https://goreportcard.com/report/github.com/xyproto/textoutput)
+[![GoDoc](https://godoc.org/github.com/xyproto/textoutput?status.svg)](https://godoc.org/github.com/xyproto/textoutput) [![License](https://img.shields.io/badge/license-BSD-green.svg?style=flat)](https://raw.githubusercontent.com/xyproto/textoutput/master/LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/xyproto/textoutput)](https://goreportcard.com/report/github.com/xyproto/textoutput)
 
 Package for controlling text output, with or without colors, on Linux, using VT100 terminal codes.
 
