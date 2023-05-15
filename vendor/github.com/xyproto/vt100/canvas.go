@@ -7,7 +7,6 @@ import (
 	"strconv"
 	"strings"
 	"sync"
-	"unicode"
 )
 
 type ColorRune struct {
@@ -137,8 +136,8 @@ func (c *Canvas) String() string {
 func (c *Canvas) PlotAll() {
 	w := c.w
 	h := c.h
+	c.mut.Lock()
 	for y := uint(0); y < h; y++ {
-		c.mut.Lock()
 		for x := int(w - 1); x >= 0; x-- {
 			cr := &((*c).chars[y*w+uint(x)])
 			r := cr.r
@@ -149,8 +148,8 @@ func (c *Canvas) PlotAll() {
 			SetXY(uint(x), y)
 			fmt.Print(cr.fg.Combine(cr.bg).String() + string(r) + NoColor())
 		}
-		c.mut.Unlock()
 	}
+	c.mut.Unlock()
 }
 
 // Return the size of the current canvas
@@ -274,36 +273,56 @@ func (c *Canvas) Draw() {
 	// and it will appear like the first line(s) are lost!
 
 	c.mut.RLock()
+
+	if len((*c).chars) == 0 {
+		c.mut.RUnlock()
+		return
+	}
+
 	firstRun := len(c.oldchars) == 0
 	skipAll := !firstRun // true by default, except for the first run
-	size := uint(c.w * c.h)
 
-	for index := uint(0); index < (size - 1); index++ {
-		cr = (*c).chars[index]
-		if !firstRun {
+	if firstRun {
+		for index := uint(0); index < (c.w*c.h - 1); index++ {
+			cr = (*c).chars[index]
+			// Only output a color code if it's different from the last character, or it's the first one
+			if (index == 0) || !lastfg.Equal(cr.fg) || !lastbg.Equal(cr.bg) {
+				// Write to the string builder
+				sb.WriteString(cr.fg.Combine(cr.bg).String())
+			}
+			// Write the character
+			if cr.r != 0 {
+				sb.WriteRune(cr.r)
+			} else {
+				sb.WriteRune(' ')
+			}
+			lastfg = cr.fg
+			lastbg = cr.bg
+		}
+	} else {
+		for index := uint(0); index < (c.w*c.h - 1); index++ {
+			cr = (*c).chars[index]
 			oldcr = (*c).oldchars[index]
 			if cr.fg.Equal(lastfg) && cr.fg.Equal(oldcr.fg) && cr.bg.Equal(lastbg) && cr.bg.Equal(oldcr.bg) && cr.r == oldcr.r {
 				// One is not skippable, can not skip all
 				skipAll = false
 			}
+			// Only output a color code if it's different from the last character, or it's the first one
+			if (index == 0) || !lastfg.Equal(cr.fg) || !lastbg.Equal(cr.bg) {
+				// Write to the string builder
+				sb.WriteString(cr.fg.Combine(cr.bg).String())
+			}
+			// Write the character
+			if cr.r != 0 {
+				sb.WriteRune(cr.r)
+			} else {
+				sb.WriteRune(' ')
+			}
+			lastfg = cr.fg
+			lastbg = cr.bg
 		}
-
-		// Only output a color code if it's different from the last character, or it's the first one
-		if (index == 0) || !lastfg.Equal(cr.fg) || !lastbg.Equal(cr.bg) {
-			// Write to the string builder
-			sb.WriteString(cr.fg.Combine(cr.bg).String())
-		}
-
-		// Write the character
-		if unicode.IsPrint(cr.r) {
-			sb.WriteRune(cr.r)
-		} else {
-			sb.WriteRune(' ')
-		}
-
-		lastfg = cr.fg
-		lastbg = cr.bg
 	}
+
 	c.mut.RUnlock()
 
 	// The screenfull so far is correct (sb.String())
