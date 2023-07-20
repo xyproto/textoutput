@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
 	github.com/xyproto/env/v2 v2.0.0
-	github.com/xyproto/vt100 v1.12.3
+	github.com/xyproto/vt100 v1.12.4
 )
 
 require (
