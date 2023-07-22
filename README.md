@@ -4,15 +4,13 @@
 
 Package for controlling text output, with or without colors, using VT100 terminal codes.
 
+![example use](img/example_use.png)
+
+[main.go](cmd/print/main.go).
+
 ## Requirements
 
 * Go 1.17 or later
-
-## Example use
-
-![example use](img/example_use.png)
-
-This program is also available [as text](cmd/print/main.go).
 
 ## General info
 
