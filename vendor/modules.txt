@@ -20,7 +20,7 @@ github.com/xyproto/burnfont
 # github.com/xyproto/env/v2 v2.2.5
 ## explicit; go 1.19
 github.com/xyproto/env/v2
-# github.com/xyproto/vt100 v1.13.0
+# github.com/xyproto/vt100 v1.14.0
 ## explicit; go 1.17
 github.com/xyproto/vt100
 # golang.org/x/sys v0.15.0
