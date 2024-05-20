@@ -13,8 +13,8 @@ github.com/xyproto/burnfont v1.2.3 h1:4MHSRrmVqZT8i1XmDrEG/5qcg2G1bSEDlOoO3BCl11
 github.com/xyproto/burnfont v1.2.3/go.mod h1:NlQwt/VHpxq17k8CkHcWvWTGhBim818XB4onh+TeZRo=
 github.com/xyproto/env/v2 v2.2.5 h1:FNrp56sptc7ebC2QpM8lqKSGEb3UoYUJZZFl4bmcrPs=
 github.com/xyproto/env/v2 v2.2.5/go.mod h1:F81ZEzu15s3TWUZJ1uzBl9iNeq9zcfHvxMkQJaLZUl0=
-github.com/xyproto/vt100 v1.14.3 h1:h45vq7VJ2FhqvFv4KZ1e3AAwPdQ0KkvckuzushLaINk=
-github.com/xyproto/vt100 v1.14.3/go.mod h1:2oVCdJyXbQjfmUuNJexKgwigV6P0hqlNOYKUMcd9AGo=
+github.com/xyproto/vt100 v1.14.4 h1:Sbl0swBJPtOksSWy6lY/pDNrUUp5kzkCHAdbqjT4zYE=
+github.com/xyproto/vt100 v1.14.4/go.mod h1:O2KVKLPD0X5zzrR3X4CibLHXWYMDJpU+Tp7insqRtPA=
 github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
