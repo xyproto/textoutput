@@ -14,5 +14,5 @@ require (
 	github.com/nathan-fiscaletti/consolesize-go v0.0.0-20220204101620-317176b6684d // indirect
 	github.com/pkg/term v1.2.0-beta.2.0.20210419004637-f749b98bd0ba // indirect
 	github.com/xyproto/burnfont v1.2.3 // indirect
-	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/sys v0.20.0 // indirect
 )
