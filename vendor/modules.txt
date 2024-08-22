@@ -17,7 +17,7 @@ github.com/pkg/term/termios
 # github.com/xyproto/burnfont v1.2.3
 ## explicit; go 1.9
 github.com/xyproto/burnfont
-# github.com/xyproto/env/v2 v2.3.0
+# github.com/xyproto/env/v2 v2.5.0
 ## explicit; go 1.19
 github.com/xyproto/env/v2
 # github.com/xyproto/vt100 v1.14.5
