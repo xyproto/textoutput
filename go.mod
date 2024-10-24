@@ -4,8 +4,8 @@ go 1.22.0
 
 require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
-	github.com/xyproto/env/v2 v2.5.0
-	github.com/xyproto/vt100 v1.16.6
+	github.com/xyproto/env/v2 v2.5.1
+	github.com/xyproto/vt100 v1.16.8
 )
 
 require (
