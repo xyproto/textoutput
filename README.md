@@ -4,7 +4,7 @@
 
 Package for controlling text output, with or without colors, using VT100 terminal codes.
 
-[![example use](img/example_use.png)](cmd/print/main.go)
+The functionality has now been moved to the [vt](https://github.com/xyproto/vt) package.
 
 ## Requirements
 
